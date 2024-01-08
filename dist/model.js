@@ -6,7 +6,7 @@ class WeatherModel {
   async getAllCities() {
     try {
       // Make a request to the server to get all cities
-      const response = await fetch("/api/cities");
+      const response = await fetch("/servers/routes/api/cities");
       const data = await response.json();
 
       // Update the model's data with the received cities
@@ -19,7 +19,7 @@ class WeatherModel {
   async getCityData(cityName) {
     try {
       // Make a request to the server to get data for a specific city
-      const response = await fetch(`/api/city/${cityName}`);
+      const response = await fetch(`/servers/routes/api/city/${cityName}`);
       const data = await response.json();
 
       // Update the model's data with the received city data
@@ -32,7 +32,7 @@ class WeatherModel {
   async saveCity(cityData) {
     try {
       // Make a request to the server to save a city's data
-      const response = await fetch("/api/saveCity", {
+      const response = await fetch("/servers/routes/api/city", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ class WeatherModel {
   async deleteCity(cityName) {
     try {
       // Make a request to the server to delete a city
-      await fetch(`/api/deleteCity/${cityName}`, {
+      await fetch(`/servers/routes/api/city/${cityName}`, {
         method: "DELETE",
       });
 

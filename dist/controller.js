@@ -33,6 +33,15 @@ class WeatherController {
     await this.model.deleteCity(cityName);
     this.view.appendData({ cities: this.model.cities });
   }
+
+  async searchButtonHandler() {
+    const cityName = $("#city-input").val();
+    if (cityName) {
+      await this.renderCityData(cityName);
+    } else {
+      alert("Please enter a city name.");
+    }
+  }
 }
 
 const weatherController = new WeatherController(weatherModel, weatherRenderer);

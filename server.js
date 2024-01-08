@@ -7,6 +7,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "node_modules")));
 const apiRoutes = require("./servers/routes/api");
 const apiKey = "2e0c3a451c905b57bc89e4ae2d60e972";
 mongoose.connect("mongodb://127.0.0.1:27017/DBweather", {

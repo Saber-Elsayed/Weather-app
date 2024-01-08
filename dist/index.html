@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link rel="stylesheet" href="dist/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
   </head>
   <body>
-    <div id="weather-container"></div>
+    <div id="weather-container">
+      <div id="search-container">
+        <input type="text" id="city-input" placeholder="Enter city" />
+        <button onclick="weatherController.searchButtonHandler()">
+          Search
+        </button>
+      </div>
+    </div>
 
     <!-- Handlebars template -->
     <script id="weather-template" type="text/x-handlebars-template">
@@ -27,15 +37,11 @@
       {{/each}}
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="model.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+    <script src="view.js"></script>
 
-    <script src="dist/model.js"></script>
-
-    <script src="dist/renderer.js"></script>
-
-    <script src="dist/controller.js"></script>
+    <script src="controller.js"></script>
 
     <!-- Initialization script -->
     <script>
