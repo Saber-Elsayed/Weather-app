@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#weather-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+div {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-right: 5px;
+  cursor: pointer;
+}
