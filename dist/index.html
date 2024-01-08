@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="dist/style.css" />
+  </head>
+  <body>
+    <div id="weather-container"></div>
+
+    <!-- Handlebars template -->
+    <script id="weather-template" type="text/x-handlebars-template">
+      {{#each cities}}
+        <div>
+          <h2>{{name}}</h2>
+          <!-- Display other city data as needed -->
+          <button
+            class="save-button"
+            onclick="weatherController.saveButtonHandler({name: '{{name}}'})"
+          >Save</button>
+          <button
+            class="remove-button"
+            onclick="weatherController.removeButtonHandler('{{name}}')"
+          >Remove</button>
+        </div>
+      {{/each}}
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+
+    <script src="dist/model.js"></script>
+
+    <script src="dist/renderer.js"></script>
+
+    <script src="dist/controller.js"></script>
+
+    <!-- Initialization script -->
+    <script>
+      $(document).ready(function () {
+        weatherController.renderSavedData();
+      });
+    </script>
+  </body>
+</html>
