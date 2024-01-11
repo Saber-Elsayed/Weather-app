@@ -11,12 +11,9 @@
   </head>
   <body>
     <div id="weather-container">
-      <div id="search-container">
-        <input type="text" id="city-input" placeholder="Enter city" />
-        <button onclick="weatherController.searchButtonHandler()">
-          Search
-        </button>
-      </div>
+      <input type="text" id="city-input" placeholder="Enter city" />
+      <button onclick="weatherController.searchButtonHandler()">Search</button>
+      <div id="search-container"></div>
     </div>
 
     <!-- Handlebars template -->
@@ -24,6 +21,9 @@
       {{#each cities}}
         <div>
           <h2>{{name}}</h2>
+          <h2>{{temperature}}</h2>
+          <h2>{{weatherDescription}}</h2>
+
           <!-- Display other city data as needed -->
           <button
             class="save-button"

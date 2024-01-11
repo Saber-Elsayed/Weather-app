@@ -5,10 +5,10 @@ class Renderer {
   }
 
   appendData(data) {
-    // Append the data to the HTML using the Handlebars template
+    this.target.empty();
     const renderedHTML = this.template(data);
     this.target.append(renderedHTML);
   }
 }
 
-const weatherRenderer = new Renderer("#weather-template", "#weather-container");
+const weatherRenderer = new Renderer("#weather-template", "#search-container");

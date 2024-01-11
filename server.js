@@ -22,15 +22,15 @@ db.once("open", () => {
   console.log("Connected to MongoDB");
 });
 
-app.get("/weather", async (req, res) => {
+app.get("/weather/:cityName", async (req, res) => {
   try {
-    console.log("hi");
-    const cityId = "524901"; // Replace with the city ID of your choice
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}`;
+    const cityName = req.params.cityName;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
     const response = await axios.get(apiUrl);
-    const weatherData = response.data;
-
-    res.json(weatherData);
+    const { name, main, weather } = response.data;
+    const temperature = main.temp;
+    const weatherDescription = weather[0].description;
+    res.json({ name, temperature, weatherDescription });
   } catch (error) {
     console.error("Error fetching weather data:", error.message);
     res.status(500).send("Internal Server Error");

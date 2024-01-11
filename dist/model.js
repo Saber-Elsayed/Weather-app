@@ -19,7 +19,7 @@ class WeatherModel {
   async getCityData(cityName) {
     try {
       // Make a request to the server to get data for a specific city
-      const response = await fetch(`/servers/routes/api/city/${cityName}`);
+      const response = await fetch(`/weather/${cityName}`);
       const data = await response.json();
 
       // Update the model's data with the received city data
